@@ -42,7 +42,7 @@ class DETR(nn.Module):
         self.aux_loss = aux_loss
 
     def forward(self, samples: NestedTensor):
-        """ The forward expects a NestedTensor, which consists of:
+        """ The forward expects a NestedTensor, which consists of:
                - samples.tensor: batched images, of shape [batch_size x 3 x H x W]
                - samples.mask: a binary mask of shape [batch_size x H x W], containing 1 on padded pixels
 
@@ -315,7 +315,7 @@ def build(args):
         # for panoptic, we just add a num_classes that is large enough to hold
         # max_obj_id + 1, but the exact value doesn't really matter
         num_classes = 250
-    if args.dataset_file == 'mydata':
+    if args.dataset_file == 'custom':
         # "You should always use num_classes = max_id + 1 where max_id is the highest class ID that you have in your dataset."
         # Reference: https://github.com/facebookresearch/detr/issues/108#issuecomment-650269223
         num_classes = 5
